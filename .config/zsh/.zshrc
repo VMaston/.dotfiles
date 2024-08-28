@@ -3,6 +3,12 @@ eval "$(starship init zsh)"
 alias ls="ls -a --color=tty"
 alias home="cd $HOME"
 
+#install antidote if not exist
+if [[ ! -a ${ZDOTDIR:-$HOME}/.antidote ]]; then
+	echo "Antidote not installed: fetching from GitHub and installing to ${ZDOTDIR:-$HOME}/.antidote"
+    git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote
+fi
+
 # source antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
