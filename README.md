@@ -19,3 +19,7 @@ Deployed using `git stow --no-folding .` in the .dotfiles directory, which will 
     - [zsh-syntax-highlighting](zsh-users/zsh-syntax-highlighting)
     - [zsh-completions](https://github.com/zsh-users/zsh-completions)
     - [zsh-autocompletions](https://github.com/zsh-users/zsh-autosuggestions)
+
+### Programs:
+
+- [Volta (Node Version Manager)](https://github.com/volta-cli/volta)
