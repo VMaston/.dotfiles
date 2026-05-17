@@ -4,4 +4,4 @@ zsh-users/zsh-completions
 # catppuccin/zsh-syntax-highlighting path:themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
-# zsh-users/zsh-history-substring-search
+zsh-users/zsh-history-substring-search

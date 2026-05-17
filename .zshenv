@@ -1,7 +1,7 @@
-# System Enviornment Variables
+# System Environment Variables
 export XDG_CONFIG_HOME="$HOME/.config"
-export EDITOR="code"
-export VISUAL="code"
+export EDITOR="kate"
+export VISUAL="kate"
 
 # zsh Environment Variables
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh" # Configuration Directory Path
