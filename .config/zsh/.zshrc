@@ -105,3 +105,35 @@ bindkey '^[[1;3B' history-substring-search-down
 
 # Tab completion
 bindkey '^I' expand-or-complete
+
+# ---- user -----
+
+function pi {
+  local kit="/home/vincent/tools/sandbox-config"
+  local pi_config="/home/vincent/.pi/agent"
+  local project
+
+  # Use first arg as project path, otherwise current directory
+  project="${1:-$PWD}"
+  project="$(realpath "$project")"
+
+  local dir_name path_hash sandbox_name
+  dir_name="$(basename "$project")"
+  path_hash="$(printf '%s' "$project" | sha1sum | cut -c1-8)"
+  sandbox_name="pi-openai-oauth-${dir_name}-${path_hash}"
+
+  if sbx ls 2>/dev/null | grep -wq "$sandbox_name"; then
+    echo "Reusing sandbox: $sandbox_name"
+    sbx run --kit "$kit" "$sandbox_name"
+  else
+    echo "Creating sandbox: $sandbox_name"
+    sbx run \
+      --name "$sandbox_name" \
+      --kit "$kit" \
+      pi-openai-oauth \
+      "$project" \
+      "$pi_config"
+  fi
+}
+
+alias MOTHERBASE='pi /home/vincent/Documents/Vaults/MOTHERBASE'
